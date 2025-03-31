@@ -570,6 +570,14 @@ button:hover {
   }
 }
 
+
+.services_header_section{
+  color: white;
+  margin-top: -1.0rem;
+  margin-bottom: 0.8rem;
+  margin-left: 20px;
+}
+
 .services_section {
   width: 100%;
   margin-bottom: 20px;
@@ -801,6 +809,17 @@ button:hover {
 
   .paragraph_container{
     margin-left: 5px;
+  }
+ 
+ 
+  }
+  .services_header_section{
+    color: white;
+    margin-top: -1.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    margin-left: -200px;
+    font-size: 15px;
   }
 
   .services_section {
