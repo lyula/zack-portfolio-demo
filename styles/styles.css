@@ -770,26 +770,34 @@ button:hover {
 
   .middle_section {
     width: 98%;
-    margin-left: 0.5%;
+    margin-left: 0.95%;
     margin-right: auto;
-    margin-top: 15px;
+    margin-top: 25px;
     box-sizing: border-box; /* Include padding and borders in width */
   }
 
+  .middle_container {
+    height: 65vh;
+    width: 98%;
+  }
+
   .middle_profile {
+    margin-top: 200px;
+    margin-bottom: -90px;
     margin-left: 1.8rem;
-    font-size: 24px;
-    margin-top: 20%;
+    font-size: 30px;
   }
 
   .middle_followup {
     margin-left: 1.8rem;
-    font-size: 24px;
+    font-size: 30px;
+    margin-top: 100px;
   }
 
    .dynamic-text{
+    margin-top: 15px;
     margin-left: 1.5rem;
-    font-size: 13px;
+    font-size: 18px;
    }
 
    .button-wrapper {
