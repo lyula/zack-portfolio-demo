@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +10,6 @@
   />
   <title>ZACK-DEV</title>
 </head>
-
 <body>
     <header class="mobile-header">
         <div class="mobile-header-left">
@@ -243,7 +241,7 @@
                 <p>Designed and Developed by Zack Lyula</p>
             </div>
         </section>
-    </div>
+      </div>
   </div>
 
   <script>
@@ -358,6 +356,32 @@ aboutModalElement.style.bottom = "auto"; // Ensure bottom is not overriding top
         });
       }
     });
+
+    const sidebarToggle = document.querySelector(".sidebar-toggle");
+  const rightSidebar = document.querySelector(".right-sidebar");
+
+  sidebarToggle.addEventListener("click", () => {
+    rightSidebar.classList.toggle("expanded");
+    if (rightSidebar.classList.contains("expanded")) {
+      sidebarToggle.classList.remove("fa-bars");
+      sidebarToggle.classList.add("fa-times");
+    } else {
+      sidebarToggle.classList.remove("fa-times");
+      sidebarToggle.classList.add("fa-bars");
+    }
+  });
+
+  // Hide sidebar nav on load
+  const sidebarNav = document.querySelector(".sidebar-nav");
+  sidebarNav.style.display = 'none';
+
+  sidebarToggle.addEventListener('click', () => {
+    if (rightSidebar.classList.contains('expanded')) {
+      sidebarNav.style.display = 'block';
+    } else {
+      sidebarNav.style.display = 'none';
+    }
+  });
   </script>
 </body>
 

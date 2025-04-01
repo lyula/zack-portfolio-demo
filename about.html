@@ -176,6 +176,11 @@
       </div>
 
       <div class="about_me-container">
+        <header class="content-header">
+          <nav class="content-nav">
+            <a href="index.html">Home</a>
+          </nav>
+        </header>
         <section class="education_experience_section">
           <div class="education_experience">
             <div class="education_card">
@@ -320,6 +325,32 @@
           });
         }
       });
+
+      const sidebarToggle = document.querySelector(".sidebar-toggle");
+  const rightSidebar = document.querySelector(".right-sidebar");
+
+  sidebarToggle.addEventListener("click", () => {
+    rightSidebar.classList.toggle("expanded");
+    if (rightSidebar.classList.contains("expanded")) {
+      sidebarToggle.classList.remove("fa-bars");
+      sidebarToggle.classList.add("fa-times");
+    } else {
+      sidebarToggle.classList.remove("fa-times");
+      sidebarToggle.classList.add("fa-bars");
+    }
+  });
+
+  // Hide sidebar nav on load
+  const sidebarNav = document.querySelector(".sidebar-nav");
+  sidebarNav.style.display = 'none';
+
+  sidebarToggle.addEventListener('click', () => {
+    if (rightSidebar.classList.contains('expanded')) {
+      sidebarNav.style.display = 'block';
+    } else {
+      sidebarNav.style.display = 'none';
+    }
+  });
     </script>
   </body>
 </html>
