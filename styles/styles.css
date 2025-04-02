@@ -2,10 +2,12 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: poppins, sans-serif;
+  font-size: 13px;
 }
 
 body {
-  background-image: url('../images/background-3.jpg');
+  background-image: url(https://images.unsplash.com/photo-1628841220750-52e52714bb11?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -109,10 +111,10 @@ hr {
 }
 
 .middle_container {
-  border-style: solid;
+ 
   border-color: #23232e;
   background-color: #23232e;
-  background-image: url('../images/middle-picture.jpeg');
+  background-image: url(https://images.unsplash.com/photo-1584949091598-c31daaaa4aa9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -231,11 +233,11 @@ button:hover {
 .paragraph {
   color: white;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 13px;
   text-align: center;
   flex-wrap: wrap;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -277,6 +279,12 @@ button:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   text-align: left;
   box-sizing: border-box;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+.service_card:hover {
+  transform: scale(1.025); /* Slightly enlarge the card on hover */
+  border-radius: 8px; /* Add border radius on hover */
 }
 
 .service_card h5 {
@@ -498,16 +506,31 @@ button:hover {
   gap: 20px;
 }
 
+.about_me{
+  background-color: #2c2c38;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.about_me h3{
+  color: #a99d6b;
+}
+
 .education_card, .experience_card {
   background-color: #2c2c38;
   color: white;
   border-radius: 8px;
   padding: 15px;
   height: auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+.education_card:hover, .experience_card:hover{
+  transform: scale(1.015); /* Slightly enlarge the card on hover */
 }
 
 .education_card h5, .experience_card h5 {
