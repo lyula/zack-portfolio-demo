@@ -58,6 +58,12 @@ body::before {
   left: 0;
 }
 
+@media (min-width: 769px) { /* Apply on desktop (adjust the breakpoint as needed) */
+  .side_container {
+    opacity: 0.9; /* Adjust the opacity for desktop */
+  }
+}
+
 
 .side_container::-webkit-scrollbar {
   display: none;
@@ -249,7 +255,7 @@ button:hover {
 }
 
 .paragraph sup {
-  font-size: 15px;
+  font-size: 18px;
   vertical-align: top;
   margin-right: 3px;
   color: #a99d6b;
@@ -280,6 +286,12 @@ button:hover {
   text-align: left;
   box-sizing: border-box;
   transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+@media (min-width: 769px) { /* Apply on desktop (adjust the breakpoint as needed) */
+  .service_card {
+    opacity: 0.8; /* Adjust the opacity for desktop */
+  }
 }
 
 .service_card:hover {
