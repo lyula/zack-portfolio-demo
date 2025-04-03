@@ -779,7 +779,10 @@ button:hover {
  hr{
   width: 100%;
  }
-
+ 
+  .windup {
+    margin-bottom: 20px;
+  }
   .footer {
     position: fixed; /* Changed to fixed */
     bottom: 0;
@@ -876,11 +879,12 @@ button:hover {
     width: 98%;
     margin-left: 12px;
     margin-right: auto;
-    margin-top: 25px;
+    margin-top: 20px;
     box-sizing: border-box; /* Include padding and borders in width */
   }
 
   .middle_container {
+    margin-top: 15px;
     height: 65vh;
     width: 98%;
   }
