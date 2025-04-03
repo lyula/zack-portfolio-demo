@@ -241,118 +241,127 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Select all progress bars
-        const progressBars = document.querySelectorAll(".progress-bar");
-    
-        progressBars.forEach((progressBar) => {
-          // Get the progress div inside the progress bar
-          const progress = progressBar.querySelector(".progress");
-    
-          // Get the width of the progress bar (e.g., "100%")
-          const progressWidth = progress.style.width;
-    
-          // Find the corresponding progress-percent span
-          const progressPercent =
-            progressBar.previousElementSibling.querySelector(
-              ".progress-percent"
-            );
-    
-          // Set the percentage text
-          progressPercent.textContent = progressWidth;
+  // Select all progress bars
+  const progressBars = document.querySelectorAll(".progress-bar");
+
+  progressBars.forEach((progressBar) => {
+    // Get the progress div inside the progress bar
+    const progress = progressBar.querySelector(".progress");
+
+    // Get the width of the progress bar (e.g., "100%")
+    const progressWidth = progress.style.width;
+
+    // Find the corresponding progress-percent span
+    const progressPercent = progressBar.previousElementSibling.querySelector(
+      ".progress-percent"
+    );
+
+    // Set the percentage text
+    progressPercent.textContent = progressWidth;
+  });
+
+  if (window.innerWidth <= 768) {
+    const menuToggle = document.querySelector(".mobile-menu-toggle");
+    const sideContainer = document.querySelector(".side_container");
+    const aboutToggle = document.querySelector(".mobile-about-toggle");
+    const mobileHeader = document.querySelector(".mobile-header"); // Get the header
+
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    overlay.style.zIndex = "998";
+    overlay.style.display = "none";
+
+    document.body.appendChild(overlay);
+
+    let homeButton = null;
+
+    menuToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      sideContainer.classList.toggle("show");
+      overlay.style.display =
+        overlay.style.display === "none" ? "block" : "none";
+
+      // Toggle the icon classes
+      menuToggle.classList.toggle("fa-bars");
+      menuToggle.classList.toggle("fa-times");
+    });
+
+    aboutToggle.addEventListener("click", () => {
+      if (homeButton) {
+        homeButton.remove();
+        homeButton = null;
+      } else {
+        homeButton = document.createElement("button");
+        homeButton.textContent = "Go to Home";
+        homeButton.style.position = "fixed";
+        homeButton.style.top = mobileHeader.offsetHeight + "px"; // Position below the header
+        homeButton.style.left = "50%";
+        homeButton.style.transform = "translateX(-50%)"; // Center horizontally
+        homeButton.style.zIndex = "1000";
+        homeButton.style.padding = "10px 20px";
+        homeButton.style.backgroundColor = "#23232e";
+        homeButton.style.color = "white";
+        homeButton.style.border = "none";
+        homeButton.style.borderRadius = "5px";
+        homeButton.style.cursor = "pointer";
+
+        homeButton.addEventListener("click", () => {
+          window.location.href = "index.html";
         });
-    
-        if (window.innerWidth <= 768) {
-          const menuToggle = document.querySelector(".mobile-menu-toggle");
-          const sideContainer = document.querySelector(".side_container");
-          const aboutToggle = document.querySelector(".mobile-about-toggle");
-          const mobileHeader = document.querySelector(".mobile-header"); // Get the header
-    
-          const overlay = document.createElement("div");
-          overlay.className = "overlay";
-          overlay.style.position = "fixed";
-          overlay.style.top = "0";
-          overlay.style.left = "0";
-          overlay.style.width = "100vw";
-          overlay.style.height = "100vh";
-          overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-          overlay.style.zIndex = "998";
-          overlay.style.display = "none";
-    
-          document.body.appendChild(overlay);
-    
-          let homeButton = null;
-    
-          menuToggle.addEventListener("click", (event) => {
-            event.stopPropagation();
-            sideContainer.classList.toggle("show");
-            overlay.style.display =
-              overlay.style.display === "none" ? "block" : "none";
-          });
-    
-          aboutToggle.addEventListener("click", () => {
-            if (homeButton) {
-              homeButton.remove();
-              homeButton = null;
-            } else {
-              homeButton = document.createElement("button");
-              homeButton.textContent = "Go to Home";
-              homeButton.style.position = "fixed";
-              homeButton.style.top = mobileHeader.offsetHeight + "px"; // Position below the header
-              homeButton.style.left = "50%";
-              homeButton.style.transform = "translateX(-50%)"; // Center horizontally
-              homeButton.style.zIndex = "1000";
-              homeButton.style.padding = "10px 20px";
-              homeButton.style.backgroundColor = "#23232e";
-              homeButton.style.color = "white";
-              homeButton.style.border = "none";
-              homeButton.style.borderRadius = "5px";
-              homeButton.style.cursor = "pointer";
-    
-              homeButton.addEventListener("click", () => {
-                window.location.href = "index.html";
-              });
-    
-              document.body.appendChild(homeButton);
-            }
-          });
-    
-          document.addEventListener("click", (event) => {
-            if (
-              !sideContainer.contains(event.target) &&
-              sideContainer.classList.contains("show")
-            ) {
-              sideContainer.classList.remove("show");
-              overlay.style.display = "none";
-            }
-          });
+
+        document.body.appendChild(homeButton);
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        !sideContainer.contains(event.target) &&
+        sideContainer.classList.contains("show")
+      ) {
+        sideContainer.classList.remove("show");
+        overlay.style.display = "none";
+
+        // Reset the hamburger icon if the side container is closed.
+        if (menuToggle.classList.contains("fa-times")) {
+          menuToggle.classList.remove("fa-times");
+          menuToggle.classList.add("fa-bars");
         }
-      });
+      }
+    });
+  }
+});
 
-      const sidebarToggle = document.querySelector(".sidebar-toggle");
-  const rightSidebar = document.querySelector(".right-sidebar");
+const sidebarToggle = document.querySelector(".sidebar-toggle");
+const rightSidebar = document.querySelector(".right-sidebar");
 
-  sidebarToggle.addEventListener("click", () => {
-    rightSidebar.classList.toggle("expanded");
-    if (rightSidebar.classList.contains("expanded")) {
-      sidebarToggle.classList.remove("fa-bars");
-      sidebarToggle.classList.add("fa-times");
-    } else {
-      sidebarToggle.classList.remove("fa-times");
-      sidebarToggle.classList.add("fa-bars");
-    }
-  });
+sidebarToggle.addEventListener("click", () => {
+  rightSidebar.classList.toggle("expanded");
+  if (rightSidebar.classList.contains("expanded")) {
+    sidebarToggle.classList.remove("fa-bars");
+    sidebarToggle.classList.add("fa-times");
+  } else {
+    sidebarToggle.classList.remove("fa-times");
+    sidebarToggle.classList.add("fa-bars");
+  }
+});
 
-  // Hide sidebar nav on load
-  const sidebarNav = document.querySelector(".sidebar-nav");
-  sidebarNav.style.display = 'none';
+// Hide sidebar nav on load
+const sidebarNav = document.querySelector(".sidebar-nav");
+sidebarNav.style.display = "none";
 
-  sidebarToggle.addEventListener('click', () => {
-    if (rightSidebar.classList.contains('expanded')) {
-      sidebarNav.style.display = 'block';
-    } else {
-      sidebarNav.style.display = 'none';
-    }
-  });
+sidebarToggle.addEventListener("click", () => {
+  if (rightSidebar.classList.contains("expanded")) {
+    sidebarNav.style.display = "block";
+  } else {
+    sidebarNav.style.display = "none";
+  }
+});
     </script>
   </body>
 </html>
